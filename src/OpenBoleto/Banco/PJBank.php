@@ -50,21 +50,28 @@ class PJBank extends BoletoAbstract
 
     protected $codigo_de_barras;
 
-    protected $image;
+    protected $qrcode_pix;
 
+    public function getQrcodePix()
+    {
+        return $this->qrcode_pix;
+    }
+
+    public function setQrcodePix($qrcode_pix)
+    {
+        if (!$qrcode_pix) {
+            return $this;
+        }
+        $qrcode_pix = new QrCode($qrcode_pix);
+        $output = new Output\Png();
+        $this->qrcode_pix = $output->output($qrcode_pix, 130);
+        return $this;
+    }
 
     public function setCodigoDeBarras($codigo_de_barras)
     {
         $this->codigo_de_barras = $codigo_de_barras;
         return $this;
-    }
-
-    public function getQRCodePix()
-    {
-        $qrCode = new QrCode('00020126450014br.gov.bcb.pix0123sidneylopesjr@gmail.com52040000530398654041.005802BR5912Sidney Lopes6013Tx de Freitas62070503***6304C75C');
-
-        $output = new Output\Png();
-        return $output->output($qrCode, 130);
     }
 
     public function getCodigoDeBarras()
