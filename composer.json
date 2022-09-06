@@ -1,9 +1,9 @@
 {
-    "name": "openboleto/openboleto",
+    "name": "trilote/openboleto",
     "type": "library",
     "description": "Biblioteca para geração de boletos bancários.",
     "keywords": ["boleto", "boleto bancario"],
-    "homepage": "http://github.com/openboleto/openboleto",
+    "homepage": "http://github.com/trilote/openboleto",
     "license": "MIT",
     "authors": [
         {
