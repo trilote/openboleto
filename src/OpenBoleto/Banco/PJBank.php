@@ -29,6 +29,9 @@ namespace OpenBoleto\Banco;
 use OpenBoleto\BoletoAbstract;
 use OpenBoleto\Exception;
 
+use Mpdf\QrCode\QrCode;
+use Mpdf\QrCode\Output;
+
 class PJBank extends BoletoAbstract
 {
     protected $codigoBanco = '301';
@@ -47,10 +50,21 @@ class PJBank extends BoletoAbstract
 
     protected $codigo_de_barras;
 
+    protected $image;
+
+
     public function setCodigoDeBarras($codigo_de_barras)
     {
         $this->codigo_de_barras = $codigo_de_barras;
         return $this;
+    }
+
+    public function getQRCodePix()
+    {
+        $qrCode = new QrCode('00020126450014br.gov.bcb.pix0123sidneylopesjr@gmail.com52040000530398654041.005802BR5912Sidney Lopes6013Tx de Freitas62070503***6304C75C');
+
+        $output = new Output\Png();
+        return $output->output($qrCode, 130);
     }
 
     public function getCodigoDeBarras()

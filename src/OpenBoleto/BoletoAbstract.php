@@ -1246,6 +1246,8 @@ abstract class BoletoAbstract
         return array();
     }
 
+    public function getQRCodePix(){}
+
     /**
      * Retorna o HTML do boleto gerado
      *
@@ -1295,7 +1297,8 @@ abstract class BoletoAbstract
             'codigo_barras' => $this->getImagemCodigoDeBarras(),
             'resource_path' => $this->getResourcePath(),
             'numero_febraban' => $this->getNumeroFebraban(),
-            'imprime_instrucoes_impressao' => $this->getImprimeInstrucoesImpressao()
+            'imprime_instrucoes_impressao' => $this->getImprimeInstrucoesImpressao(),
+            'qrcode_pix' => $this->getQRCodePix(),
         );
         
         
