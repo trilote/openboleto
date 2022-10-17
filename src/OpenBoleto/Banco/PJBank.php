@@ -86,7 +86,7 @@ class PJBank extends BoletoAbstract
 
     public function getNossoNumero($incluirFormatacao = true)
     {
-        return substr_replace($this->nosso_numero, ' ' . substr($this->nosso_numero, -1), 12, 1);
+        return $this->nosso_numero;
     }
 
     protected function gerarNossoNumero()
