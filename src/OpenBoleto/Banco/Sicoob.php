@@ -47,6 +47,12 @@ class Sicoob extends BoletoAbstract
     protected $codigoBanco = '756';
 
     /**
+     * Localização da logomarca da empresa, referente ao diretório de imagens
+     * @var string
+     */
+    protected $logomarca = 'logomarca.png';
+
+    /**
      * Localização do logotipo do banco, referente ao diretório de imagens
      * @var string
      */

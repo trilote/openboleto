@@ -34,6 +34,8 @@ use Mpdf\QrCode\Output;
 
 class PJBank extends BoletoAbstract
 {
+    protected $logomarca = 'logomarca.png';
+
     protected $codigoBanco = '301';
 
     protected $logoBanco = 'sicoob.jpg';

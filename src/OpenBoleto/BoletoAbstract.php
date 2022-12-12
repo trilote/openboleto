@@ -276,6 +276,12 @@ abstract class BoletoAbstract
     protected $logoPath;
 
     /**
+     * Localização da logomarca da empresa, referente ao diretório de imagens
+     * @var string
+     */
+    protected $logomarca;
+
+    /**
      * Localização do logotipo do banco, referente ao diretório de imagens
      * @var string
      */
@@ -1122,6 +1128,18 @@ abstract class BoletoAbstract
     }
 
     /**
+     * Define a localização da logomarca da empresa relativo à pasta de imagens
+     *
+     * @param string $logomarca
+     * @return BoletoAbstract
+     */
+    public function setLogomarca($logomarca)
+    {
+        $this->logomarca = $logomarca;
+        return $this;
+    }
+
+    /**
      * Define a localização do logotipo do banco relativo à pasta de imagens
      *
      * @param string $logoBanco
@@ -1134,6 +1152,16 @@ abstract class BoletoAbstract
     }
 
     /**
+     * Retorna a localização da logomarca do banco relativo à pasta de imagens
+     *
+     * @return string
+     */
+    public function getLogomarca()
+    {
+        return $this->logomarca;
+    }
+
+    /**
      * Retorna a localização do logotipo do banco relativo à pasta de imagens
      *
      * @return string
@@ -1141,6 +1169,22 @@ abstract class BoletoAbstract
     public function getLogoBanco()
     {
         return $this->logoBanco;
+    }
+
+    /**
+     * Retorna a logomarca da empresa em Base64, pronto para ser inserido na página
+     *
+     * @return string
+     */
+    public function getLogomarcaBase64()
+    {
+        static $logoData;
+
+        $logoData or $logoData = 'data:image/' . pathinfo($this->getLogomarca(), PATHINFO_EXTENSION) .
+            ';base64,' . base64_encode(file_get_contents($this->getResourcePath() .
+            '/images/' . $this->getLogomarca()));
+
+        return $logoData;
     }
 
     /**
@@ -1263,6 +1307,7 @@ abstract class BoletoAbstract
             'cedente_cpf_cnpj' => $this->getCedente()->getDocumento(),
             'cedente_endereco1' => $this->getCedente()->getEndereco(),
             'cedente_endereco2' => $this->getCedente()->getCepCidadeUf(),
+            'logomarca' => $this->getLogomarcaBase64(),
             'logo_banco' => $this->getLogoBancoBase64(),
             'logotipo' => $this->getLogoPath(),
             'codigo_banco_com_dv' => $this->getCodigoBancoComDv(),
