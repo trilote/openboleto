@@ -32,11 +32,11 @@ use OpenBoleto\Exception;
 use Mpdf\QrCode\QrCode;
 use Mpdf\QrCode\Output;
 
-class PJBank extends BoletoAbstract
+class Clientbase extends BoletoAbstract
 {
     protected $logomarca = 'logomarca.png';
 
-    protected $codigoBanco = '301';
+    protected $codigoBanco = '462';
 
     protected $logoBanco = 'logomarca.png';
 
