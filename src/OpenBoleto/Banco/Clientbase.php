@@ -54,9 +54,16 @@ class Clientbase extends BoletoAbstract
 
     protected $qrcode_pix;
 
+    protected $pix_copia_cola;
+
     public function getQrcodePix()
     {
         return $this->qrcode_pix;
+    }
+
+    public function getPixCopiaCola()
+    {
+        return $this->pix_copia_cola;
     }
 
     public function setQrcodePix($qrcode_pix)
@@ -64,6 +71,7 @@ class Clientbase extends BoletoAbstract
         if (!$qrcode_pix) {
             return $this;
         }
+        $this->pix_copia_cola = $qrcode_pix;
         $qrcode_pix = new QrCode($qrcode_pix);
         $output = new Output\Png();
         $this->qrcode_pix = $output->output($qrcode_pix, 130);

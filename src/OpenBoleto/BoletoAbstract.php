@@ -1292,6 +1292,8 @@ abstract class BoletoAbstract
 
     public function getQrcodePix(){}
 
+    public function getPixCopiaCola(){}
+
     /**
      * Retorna o HTML do boleto gerado
      *
@@ -1344,6 +1346,7 @@ abstract class BoletoAbstract
             'numero_febraban' => $this->getNumeroFebraban(),
             'imprime_instrucoes_impressao' => $this->getImprimeInstrucoesImpressao(),
             'qrcode_pix' => $this->getQrcodePix(),
+            'pix_copia_cola' => $this->getPixCopiaCola(),
         );
         
         
