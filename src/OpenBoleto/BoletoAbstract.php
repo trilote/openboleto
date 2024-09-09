@@ -1290,6 +1290,8 @@ abstract class BoletoAbstract
         return array();
     }
 
+    public function getIntermediador(){}
+    
     public function getQrcodePix(){}
 
     public function getPixCopiaCola(){}
@@ -1347,9 +1349,8 @@ abstract class BoletoAbstract
             'imprime_instrucoes_impressao' => $this->getImprimeInstrucoesImpressao(),
             'qrcode_pix' => $this->getQrcodePix(),
             'pix_copia_cola' => $this->getPixCopiaCola(),
+            'intermediador' => $this->getIntermediador(),
         );
-        
-        
         
         $this->data = array_merge($this->data,$this->getViewVars());
         
