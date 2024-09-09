@@ -56,6 +56,19 @@ class Clientbase extends BoletoAbstract
 
     protected $pix_copia_cola;
 
+    protected $intermediador;
+
+    public function getIntermediador()
+    {
+        return $this->intermediador;
+    }
+
+    public function setIntermediador($intermediador)
+    {
+        $this->intermediador = $intermediador;
+        return $this;
+    }
+
     public function getQrcodePix()
     {
         return $this->qrcode_pix;
